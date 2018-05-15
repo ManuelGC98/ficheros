@@ -6,13 +6,13 @@ import java.util.TimerTask;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-public class AvernoListener extends TimerTask implements ServletContextListener {
+public class AvernoComeAlmas extends TimerTask implements ServletContextListener {
 	private Timer timerCreacion;
 
 	@Override
 	public void run() {
-		Demonio satanael = new Demonio();
-		satanael.invocacion();
+		Demonio lucifer = new Demonio();
+		lucifer.recoleccionAlmas();
 	}
 
 	public void contextDestroyed(ServletContextEvent arg0) {
@@ -22,6 +22,8 @@ public class AvernoListener extends TimerTask implements ServletContextListener 
 	}
 
 	public void contextInitialized(ServletContextEvent arg0) {
+		System.out.println("INICIANDO LISTENER FPDUAL.DEMONIO. GORA SATAN!!");
+
 		timerCreacion = new Timer();
 		timerCreacion.schedule(this, 120000, 3600000);
 	}

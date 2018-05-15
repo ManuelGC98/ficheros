@@ -6,9 +6,7 @@ import java.io.OutputStream;
 import java.security.SecureRandom;
 
 public class Demonio {
-	
-	
-	
+
 	public void invocacion() {
 		// 1. Acceder a un directorio especifico de trabajo
 
@@ -41,4 +39,23 @@ public class Demonio {
 			}
 		}
 	}
+
+	public void recoleccionAlmas() {
+		String ruta = "c:/listener/";
+
+		File directorio = new File(ruta);
+
+		if (directorio.exists()) {
+			SecureRandom random = new SecureRandom();
+			File consumir = null;
+			for (String alma : directorio.list()) {
+				consumir = new File(alma);
+
+				if (random.nextLong() % 2 == 0) {
+					consumir.delete();
+				}
+			}
+		}
+	}
+	
 }
